@@ -3,7 +3,7 @@ import { deleteFilm, getFilms, newFilm, updateFilm } from "../controllers/contro
 
 export const routes = Router()
 
-routes.get("/", getFilms)
-routes.post("/", newFilm)
-routes.delete("/:id", deleteFilm)
-routes.put("/:id", updateFilm)
+routes.get("/films", getFilms)
+routes.post("/films", newFilm)
+routes.delete("/films/:id", deleteFilm)
+routes.put("/films/:id", updateFilm)

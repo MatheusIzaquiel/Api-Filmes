@@ -73,11 +73,9 @@ export const updateFilm = async (req, res) => {
     }
 
     if (!title && !description && !banner) {
-      return res
-        .status(400)
-        .json({
-          message: "Pelo menos um campo deve ser fornecido para atualização!",
-        });
+      return res.status(400).json({
+        message: "Pelo menos um campo deve ser fornecido para atualização!",
+      });
     }
 
     const updatedFilm = await prisma.film.update({
@@ -93,7 +91,6 @@ export const updateFilm = async (req, res) => {
 
     return res.status(200).json({
       message: `O filme ${title} foi atualizado com sucesso!`,
-      data: updatedFilm,
     });
   } catch (error) {
     console.error(error);
