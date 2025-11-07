@@ -1,0 +1,13 @@
+services:
+  api:
+    build: .  # Usa o Dockerfile da raiz
+    container_name: api-filmes
+    ports:
+      - "5000:5000"  # Mapeia porta 3344 do host para 3344 do contêiner
+    environment:
+      - DATABASE_URL=postgresql://neondb_owner:npg_aIWCU7KruGR4@ep-wild-waterfall-actd3009-pooler.sa-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require
+    env_file:
+      - .env  
+    volumes:
+      - .:/app  # Monta o código local para hot-reload (opcional, remova para produção)
+    command: ["node", "src/app.js"]  
